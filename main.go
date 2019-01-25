@@ -56,8 +56,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Fprintf(os.Stdout, "info: Listening on 0.0.0.0:9094\n")
-	http.ListenAndServe(":9094", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(os.Stdout, "info: Listening on 0.0.0.0:9095\n")
+	http.ListenAndServe(":9095", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		b, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			panic(err)
@@ -77,7 +77,8 @@ func main() {
 
 		for status, alerts := range groupedAlerts {
 			DO := discordOut{
-				Name: status,
+				//Name: status,
+				Name: "AlertManager",
 			}
 
 			Content := "```"
